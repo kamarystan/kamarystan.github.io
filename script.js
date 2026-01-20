@@ -2,28 +2,23 @@ document.addEventListener('DOMContentLoaded', function() {
     const passwordForm = document.getElementById('passwordForm');
     const errorMessage = document.getElementById('errorMessage');
     
-    // Correct password (you can change this)
-    const CORRECT_PASSWORD = "HappyBirthdayMom";
+    const CORRECT_PASSWORD = "0134";
     
     passwordForm.addEventListener('submit', function(e) {
         e.preventDefault();
         const passwordInput = document.getElementById('password');
         
         if (passwordInput.value === CORRECT_PASSWORD) {
-            // Create confetti effect
             createConfetti();
             
-            // Redirect to memory page after short delay
             setTimeout(() => {
                 window.location.href = "memory.html";
             }, 1500);
         } else {
-            // Show error message
             errorMessage.classList.remove('hidden');
             passwordInput.value = '';
             passwordInput.focus();
             
-            // Shake animation for wrong password
             passwordInput.classList.add('animate-shake');
             setTimeout(() => {
                 passwordInput.classList.remove('animate-shake');
@@ -44,7 +39,6 @@ document.addEventListener('DOMContentLoaded', function() {
             confetti.style.animationDelay = Math.random() * 2 + 's';
             document.body.appendChild(confetti);
             
-            // Remove confetti after animation
             setTimeout(() => {
                 confetti.remove();
             }, 3000);
